@@ -1,5 +1,6 @@
 package com.example.customerprovincemanagement.service.impl;
 
+import com.example.customerprovincemanagement.model.DTO.ICountCustomer;
 import com.example.customerprovincemanagement.model.Province;
 import com.example.customerprovincemanagement.repository.IProvinceRepository;
 import com.example.customerprovincemanagement.service.IProvinceService;
@@ -33,5 +34,9 @@ public class ProvinceService implements IProvinceService {
     @Override
     public void remove(Long id) {
         iProvinceRepository.deleteById(id);
+    }
+
+    public Iterable<ICountCustomer> getCountCustomers() {
+        return iProvinceRepository.getNumberOfProvince();
     }
 }

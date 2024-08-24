@@ -31,9 +31,12 @@ public class CustomerController {
     @GetMapping
     public ModelAndView listCustomer(Pageable pageable) {
         Page<Customer> customers = customerService.findAll(pageable);
+
         ModelAndView modelAndView = new ModelAndView("/customer/list");
         modelAndView.addObject("customers", customers);
         return modelAndView;
+
+
     }
 
     @PostMapping("/search")

@@ -2,6 +2,7 @@ package com.example.customerprovincemanagement.controller;
 
 
 import com.example.customerprovincemanagement.model.Customer;
+import com.example.customerprovincemanagement.model.DTO.ICountCustomer;
 import com.example.customerprovincemanagement.model.Province;
 import com.example.customerprovincemanagement.service.ICustomerService;
 import com.example.customerprovincemanagement.service.IProvinceService;
@@ -27,6 +28,8 @@ public class ProvinceController {
         ModelAndView modelAndView = new ModelAndView("/province/list");
         Iterable<Province> provinces = provinceService.findAll();
         modelAndView.addObject("provinces", provinces);
+        Iterable<ICountCustomer> province1 = provinceService.getCountCustomers();
+        modelAndView.addObject("province1", province1);
         return modelAndView;
     }
 
